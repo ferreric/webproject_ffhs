@@ -1,1 +1,0 @@
-In diesem Verzeichnis werden die benötigten Dateien der Aufgabe U1 abgelegt.

@@ -1,1 +1,0 @@
-In diesem Verzeichnis werden die benötigten HTML-Dateien der Semesterarbeit abgelegt.

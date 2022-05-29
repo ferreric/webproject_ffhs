@@ -1,1 +1,0 @@
-In diesem Verzeichnis sind alle benötigten Dateien der Aufgabe U8 (PiBS) bereits vorhanden. Sie müssen school.xsd und books.xml richtig vervollständigen.
