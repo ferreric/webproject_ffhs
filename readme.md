@@ -2,7 +2,7 @@
 
 Repository von: 
 
-STUD: [Vorname] [Nachname]
+STUD: Eric Ferrari-Herrmann
 
 ## Semesterarbeit
 
