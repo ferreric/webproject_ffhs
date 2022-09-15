@@ -15,5 +15,19 @@
       <a href="products.html">Produkte</a>
     </nav>
   </header>
+    <h1>Ihre Meinung ist uns wichtig!</h1>
+  <form action="/actions/feedback.js" method="post">
+      <label for="feedbackname">Name:</label>
+      <input type="text" id="feedbackname" name="feedbackname" required>
+      <label for="feedbackemail">E-Mail:</label>
+      <input type="email" name="feedbackemail" id="feedbackemail" required>
+      <label for="feedbackdesign">Design bewerten</label>
+      <input type="range" min="1" max="10" value="5" name="feedbackdesign" id="feedbackdesign">
+      <label for="feedbackcomponents">Funktionsumfang bewerten</label>
+      <input type="range" min="1" max="10" value="5" name="feedbackcomponents" id="feedbackcomponents">
+      <label for="feedbackcomment">Hinterlassen Sie einen Kommentar</label>
+      <input type="text" id="feedbackcomment" name="feedbackcomment">
+      <button type="submit" value="Absenden"></button>
+  </form>
 </body>
 </html>
