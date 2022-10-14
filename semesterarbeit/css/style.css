@@ -1,0 +1,88 @@
+:root {
+    --background: hsl(0, 100%, 100%); /*evtl für einen späteren dark toggle*/
+}
+
+body {
+    background-color: var(--background);
+}
+/*top navigation style start*/
+body header nav {
+    background-color: gainsboro;
+    display: flex;
+    //max-width: 900px;
+}
+
+body header nav a {
+    display: flex;
+    width: calc(100% / 3);
+    padding: 1rem;
+}
+body header nav a:nth-child(odd){
+    background-color: #e4e4e4;
+}
+@media (max-width: 600px) {
+    body header nav{
+        flex-direction: column;
+        max-width: 100%;
+    }
+    body header nav a{
+        width: 100%;
+    }
+}
+/*top navigation style end*/
+/*products list style start*/
+.Products {
+    display: flex;
+    background-color: #e4e4e4;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.Products article {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 4rem;
+    background-color: beige;
+}
+h1 {
+    font-style: italic;
+    background-color: aliceblue;
+}
+
+.SKU {
+    background-color: #ff9900;
+    order: 1;
+}
+.Products article h2 {
+    background-color: darkgrey;
+    order: 2;
+}
+
+.ProductPrice {
+    background-color: gainsboro;
+    order: 3;
+}
+
+.ProductDescription{
+    background-color: aquamarine;
+    order: 4;
+}
+
+.ProductCategory{
+    background-color: antiquewhite;
+    order: 5;
+}
+
+@media (min-width: 900px){
+    .Products{
+        flex-direction: row;
+    }
+    .Products article{
+        margin-bottom: 0;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+/*products list style end*/
+/*testimonials style start*/
