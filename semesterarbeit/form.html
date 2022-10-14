@@ -5,26 +5,31 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css" />
     <title>Feedback-Formular</title>
 </head>
 <body>
   <header>
-    <nav>
-      <a href="index.html">Startseite</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="products.html">Produkte</a>
-    </nav>
+      <nav>
+          <a href="index.html">Startseite</a>
+          <a href="products.html">Produkte</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="form.html" class="Active">Feedback senden</a>
+      </nav>
   </header>
     <h1>Ihre Meinung ist uns wichtig!</h1>
   <form action="/actions/feedback.js" method="post">
-      <label for="feedbackname">Name:</label>
-      <input type="text" id="feedbackname" name="feedbackname" required>
-      <label for="feedbackemail">E-Mail:</label>
-      <input type="email" name="feedbackemail" id="feedbackemail" required>
-      <label for="feedbackdesign">Design bewerten</label>
-      <input type="range" min="1" max="10" value="5" name="feedbackdesign" id="feedbackdesign">
-      <label for="feedbackcomponents">Funktionsumfang bewerten</label>
-      <input type="range" min="1" max="10" value="5" name="feedbackcomponents" id="feedbackcomponents">
+      <section class="NameAndEMail"><label for="feedbackname">Name:</label>
+          <input type="text" id="feedbackname" name="feedbackname" required>
+          <label for="feedbackemail">E-Mail:</label>
+          <input type="email" name="feedbackemail" id="feedbackemail" required>
+      </section>
+      <section class="Sliders">
+          <label for="feedbackdesign">Design bewerten</label>
+          <input type="range" min="1" max="10" value="5" name="feedbackdesign" id="feedbackdesign">
+          <label for="feedbackcomponents">Funktionsumfang bewerten</label>
+          <input type="range" min="1" max="10" value="5" name="feedbackcomponents" id="feedbackcomponents">
+      </section>
       <label for="feedbackcomment">Hinterlassen Sie einen Kommentar</label>
       <input type="text" id="feedbackcomment" name="feedbackcomment">
       <button type="submit">Absenden</button>

@@ -4,6 +4,8 @@
 
 body {
     background-color: var(--background);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5em;
 }
 /*top navigation style start*/
 body header nav {
@@ -16,9 +18,17 @@ body header nav a {
     display: flex;
     width: calc(100% / 3);
     padding: 1rem;
+    text-decoration: none;
+    color: black;
 }
-body header nav a:nth-child(odd){
-    background-color: #e4e4e4;
+
+body header nav a:hover{
+    background-color: aliceblue;
+}
+body header nav a.Active{
+    background-color: aliceblue;
+    pointer-events: none;
+
 }
 @media (max-width: 600px) {
     body header nav{
@@ -29,8 +39,9 @@ body header nav a:nth-child(odd){
         width: 100%;
     }
 }
-/*top navigation style end*/
-/*products list style start*/
+/*top navigation style end
+============================
+products list style start*/
 .Products {
     display: flex;
     background-color: #e4e4e4;
@@ -41,9 +52,13 @@ body header nav a:nth-child(odd){
 .Products article {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-bottom: 4rem;
+    //width: 100%;
+    margin-bottom: 3rem;
     background-color: beige;
+    padding: 1em;
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
 }
 h1 {
     font-style: italic;
@@ -77,12 +92,57 @@ h1 {
 @media (min-width: 900px){
     .Products{
         flex-direction: row;
+        flex-wrap: wrap;
     }
     .Products article{
-        margin-bottom: 0;
-        margin-left: 1em;
-        margin-right: 1em;
+        margin: 1em;
+        width: calc((100% / 3) - 4em);
     }
 }
 /*products list style end*/
 /*testimonials style start*/
+.Testimonials {
+    display: flex;
+    background-color: #e4e4e4;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.Testimonials article {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    background-color: beige;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+}
+.Testimonials article figure{
+    //border: 1px #000 solid;
+    border-radius: 8em;
+    overflow: hidden;
+}
+
+.Testimonials article figure img{
+    max-width: 8em;
+    vertical-align: middle;
+}
+
+.Testimonials article blockquote{
+    max-width: 20em;
+}
+
+@media (min-width: 900px){
+    .Testimonials{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .Testimonials article{
+        width: calc((100% / 3) - 4rem);
+    }
+}
+/*testimonials list style end*/
+/*feedback style start*/
