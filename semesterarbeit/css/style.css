@@ -1,8 +1,8 @@
 :root {
     --background: darkgrey; /*evtl. für einen späteren dark toggle*/
-    --footerHeight: 80px;
-    --articleShadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
-    --articleBackground: #eee;
+    --footer-height: 80px;
+    --article-shadow: 5px 5px 5px 1px rgba(0 0 0 / 10%);
+    --article-background: #eee;
 }
 
 html {
@@ -10,9 +10,9 @@ html {
 }
 body {
     background-color: var(--background);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5em;
-    padding: 0 0 var(--footerHeight) 0;
+    padding: 0 0 var(--footer-height) 0;
     min-height: 100%;
     position: relative;
     margin: 0;
@@ -33,7 +33,7 @@ body header nav a {
 body header nav a:hover{
     background-color: #eee;
 }
-body header nav a.Active{
+body header nav a.active{
     background-color: var(--background);
     pointer-events: none;
 
@@ -41,29 +41,27 @@ body header nav a.Active{
 
 h1 {
     font-style: italic;
-    color: #ffffff;
-    margin: .5em .5em;
+    color: #fff;
+    margin: .5em;
 }
 body footer{
     font-style: italic;
-    color: #ffffff;
+    color: #fff;
     position: absolute;
     bottom: 0;
     left: 0;
-    height: var(--footerHeight);
+    height: var(--footer-height);
     width: 100%;
     display: flex;
     align-items: center;
 }
 body footer p {
-    padding: 0 1em 0 1em;
+    padding: 0 1em;
 }
 
 @media (max-width: 600px) {
     body header nav{
         flex-direction: column;
-    }
-    body header nav a{
     }
 }
 /*top navigation style end
@@ -72,29 +70,28 @@ body footer p {
 ============================
 article cards style start*/
 
-.Content {
+.content {
     display: flex;
     background-color: #e4e4e4;
     flex-direction: column;
     padding: 2rem;
 }
 
-.Content article{
+.content article{
     display: flex;
     flex-direction: column;
     margin: 2rem;
-    background-color: var(--articleBackground);
+    background-color: var(--article-background);
     border-radius: 1em;
-    box-shadow: var(--articleShadow);
+    box-shadow: var(--article-shadow);
 }
-.ArticleChild{
+.article-child{
     margin: .5rem;
 }
 
 @media (min-width: 900px){
-    .Content{
-        flex-direction: row;
-        flex-wrap: wrap;
+    .content{
+        flex-flow: row wrap;
     }
 }
 /*article cards style end
@@ -103,23 +100,23 @@ article cards style start*/
 ============================
 products list style start*/
 
-.Products article {
+.products article {
     padding: 1em;
 }
 
-.NamePriceContainer{
+.name-price-container{
     display: flex;
     flex-direction: row;
 }
-.ProductPrice {
+.product-price {
     border-radius: 0 15px;
     background: red;
     color: yellow;
-    padding: 0 4px 0;
+    padding: 0 4px;
     margin-left: auto;
 }
 
-.SKU, .ProductCategory{
+.sku, .product-category{
     font-style: italic;
 }
 /*
@@ -134,7 +131,7 @@ products list style start*/
 }
 */
 @media (min-width: 900px){
-    .Products article{
+    .products article{
         width: calc((100% / 2) - 6rem);
     }
     /*.NamePriceContainer{
@@ -147,28 +144,28 @@ products list style start*/
 ============================
 testimonials style start*/
 
-.Testimonials article {
+.testimonials article {
     justify-content: flex-start;
     align-items: center;
     text-align: center;
 }
-.Testimonials article figure{
+.testimonials article figure{
     /*border: 1px #000 solid;*/
     border-radius: 8em;
     overflow: hidden;
 }
 
-.Testimonials article figure img{
+.testimonials article figure img{
     max-width: 8em;
     vertical-align: middle;
 }
 
-.Testimonials article blockquote{
+.testimonials article blockquote{
     max-width: 20em;
 }
 
 @media (min-width: 900px){
-    .Testimonials article{
+    .testimonials article{
         width: calc((100% / 3) - 4rem);
     }
 }
@@ -194,13 +191,15 @@ body form section label{
 body form section div{
     min-width: 200px;
 }
+
 @media (min-width: 600px){
     body form section{
         flex-direction: row;
     }
 }
+
 button{
-    background-color: var(--articleBackground);
+    background-color: var(--article-background);
     text-decoration: none;
     height: 40px;
     width: 150px;
@@ -209,5 +208,5 @@ button{
 }
 
 button:hover{
-    background-color: #ff9900;
+    background-color: #f90;
 }
