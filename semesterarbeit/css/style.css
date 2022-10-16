@@ -1,6 +1,8 @@
 :root {
-    --background: hsl(0, 100%, 100%); /*evtl für einen späteren dark toggle*/
+    --background: darkgrey; /*evtl. für einen späteren dark toggle*/
     --footerHeight: 80px;
+    --articleShadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+    --articleBackground: #eee;
 }
 
 html {
@@ -29,21 +31,22 @@ body header nav a {
 }
 
 body header nav a:hover{
-    background-color: aliceblue;
+    background-color: #eee;
 }
 body header nav a.Active{
-    background-color: aliceblue;
+    background-color: var(--background);
     pointer-events: none;
 
 }
 
 h1 {
     font-style: italic;
-    background-color: aliceblue;
+    color: #ffffff;
     margin: .5em .5em;
 }
 body footer{
-    background-color: darkgrey;
+    font-style: italic;
+    color: #ffffff;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -67,84 +70,90 @@ body footer p {
 ============================
 
 ============================
-products list style start*/
-.Products {
+article cards style start*/
+
+.Content {
     display: flex;
     background-color: #e4e4e4;
     flex-direction: column;
     padding: 2rem;
 }
 
-.Products article {
+.Content article{
     display: flex;
     flex-direction: column;
     margin: 2rem;
-    background-color: beige;
-    padding: 1em;
+    background-color: var(--articleBackground);
     border-radius: 1em;
-    overflow: hidden;
-    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--articleShadow);
+}
+.ArticleChild{
+    margin: .5rem;
 }
 
-.SKU {
-    background-color: #ff9900;
-    order: 1;
+@media (min-width: 900px){
+    .Content{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
+/*article cards style end
+============================
+
+============================
+products list style start*/
+
+.Products article {
+    padding: 1em;
+}
+
+.NamePriceContainer{
+    display: flex;
+    flex-direction: row;
+}
+.ProductPrice {
+    border-radius: 0 15px;
+    background: red;
+    color: yellow;
+    padding: 0 4px 0;
+    margin-left: auto;
+}
+
+.SKU, .ProductCategory{
+    font-style: italic;
+}
+/*
 .Products article h2 {
     background-color: darkgrey;
     order: 2;
-}
-
-.ProductPrice {
-    background-color: gainsboro;
-    order: 3;
 }
 
 .ProductDescription{
     background-color: aquamarine;
     order: 4;
 }
-
-.ProductCategory{
-    background-color: antiquewhite;
-    order: 5;
-}
-
+*/
 @media (min-width: 900px){
-    .Products{
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
     .Products article{
         width: calc((100% / 2) - 6rem);
     }
+    /*.NamePriceContainer{
+        flex-direction: column;
+    }*/
 }
 /*products list style end
 ============================
 
 ============================
 testimonials style start*/
-.Testimonials {
-    display: flex;
-    background-color: #e4e4e4;
-    flex-direction: column;
-    padding: 2rem;
-}
 
 .Testimonials article {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem;
-    background-color: beige;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    border-radius: 1em;
-    overflow: hidden;
-    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
 }
 .Testimonials article figure{
-    //border: 1px #000 solid;
+    /*border: 1px #000 solid;*/
     border-radius: 8em;
     overflow: hidden;
 }
@@ -159,10 +168,6 @@ testimonials style start*/
 }
 
 @media (min-width: 900px){
-    .Testimonials{
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
     .Testimonials article{
         width: calc((100% / 3) - 4rem);
     }
@@ -174,7 +179,6 @@ testimonials style start*/
 feedback style start*/
 body form{
     margin: 1em;
-    position: relative;
 }
 
 body form section{
@@ -196,7 +200,7 @@ body form section div{
     }
 }
 button{
-    background-color: beige;
+    background-color: var(--articleBackground);
     text-decoration: none;
     height: 40px;
     width: 150px;

@@ -17,36 +17,38 @@
           <a href="form.html" class="Active">Feedback senden</a>
       </nav>
   </header>
-    <h1>Ihre Meinung ist uns wichtig!</h1>
-  <form action="/actions/feedback.js" method="post">
-      <section class="NameAndEMail">
-          <div>
-              <label for="feedbackname">Name:</label>
-              <input type="text" id="feedbackname" name="feedbackname" required>
-          </div>
-          <div>
-              <label for="feedbackemail">E-Mail:</label>
-              <input type="email" name="feedbackemail" id="feedbackemail" required>
-          </div>
-      </section>
-      <section class="Sliders">
-          <div>
-              <label for="feedbackdesign">Design bewerten</label>
-              <input type="range" min="1" max="10" value="5" name="feedbackdesign" id="feedbackdesign">
-          </div>
-          <div>
-              <label for="feedbackcomponents">Funktionsumfang bewerten</label>
-              <input type="range" min="1" max="10" value="5" name="feedbackcomponents" id="feedbackcomponents">
-          </div>
-      </section>
-      <section>
-          <div>
-              <label for="feedbackcomment">Hinterlassen Sie einen Kommentar</label>
-              <textarea id="feedbackcomment" name="feedbackcomment" cols=40 rows=5></textarea>
-          </div>
-      </section>
-      <button type="submit">Absenden</button>
-  </form>
+  <h1>Ihre Meinung ist uns wichtig!</h1>
+  <section class="Content">
+      <form> <!--action="/actions/feedback.js" method="post"-->
+          <section class="NameAndEMail">
+              <div>
+                  <label for="feedbackname">Name:</label>
+                  <input type="text" id="feedbackname" name="feedbackname" required>
+              </div>
+              <div>
+                  <label for="feedbackemail">E-Mail:</label>
+                  <input type="email" name="feedbackemail" id="feedbackemail" required>
+              </div>
+          </section>
+          <section class="Sliders">
+              <div>
+                  <label for="feedbackdesign">Design bewerten</label>
+                  <input type="range" min="1" max="10" value="5" name="feedbackdesign" id="feedbackdesign">
+              </div>
+              <div>
+                  <label for="feedbackcomponents">Funktionsumfang bewerten</label>
+                  <input type="range" min="1" max="10" value="5" name="feedbackcomponents" id="feedbackcomponents">
+              </div>
+          </section>
+          <section>
+              <div>
+                  <label for="feedbackcomment">Hinterlassen Sie einen Kommentar</label>
+                  <textarea id="feedbackcomment" name="feedbackcomment" cols=40 rows=5></textarea>
+              </div>
+          </section>
+          <button type="submit">Absenden</button>
+      </form>
+  </section>
   <footer>
       <p>
           © 2022 Eric Ferrari-Herrmann – Fernfachhochschule Schweiz – Schinerstrasse 18 CH-3900 Brig
