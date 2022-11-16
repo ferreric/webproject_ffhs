@@ -1,0 +1,74 @@
+:root {
+    --prime-color: #1D2538;
+    --secondary-color: #475B74;
+    --tertiary-color: #7c8da5;
+    --quart-color: #e0e1dc;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--prime-color);
+    color: var(--tertiary-color);
+    font-family: "Source Code Pro", "Bitstream Vera Sans", sans-serif;
+}
+
+input, select {
+    width: 100px;
+    border: 0;
+    margin: 5px 0;
+}
+
+select {
+    width: 104px;
+}
+
+section:nth-child(even) {
+    background-color: var(--secondary-color);
+}
+
+.button-wrap {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    border: 0;
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    background-color: var(--secondary-color);
+    color: var(--quart-color);
+}
+
+.form-wrap > div {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 400px;
+}
+
+.form-wrap > div > label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container{
+    display: flex;
+    gap: 20px;
+    padding: 1rem;
+}
+
+.flex-container > div {
+    background-color: var(--prime-color);
+}
+
+.center-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}

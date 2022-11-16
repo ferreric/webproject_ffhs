@@ -210,3 +210,7 @@ button{
 button:hover{
     background-color: #f90;
 }
+
+.helptext{
+    font-size: .8em;
+}

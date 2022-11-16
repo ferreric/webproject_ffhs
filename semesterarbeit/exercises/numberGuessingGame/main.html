@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+<div class="guessing-game">
+  <div>
+    <h2>Feedback</h2>
+    <span id="spnFeedback" class="feedback-text">Holen Sie sich eine neue Nummer</span>
+  </div>
+  <div>
+    <h2>Start the game</h2>
+    <input id="btnStart" type="button" value="Get New Number" />
+  </div>
+  <div>
+    <h2>Guess The number</h2>
+    <input
+            id="inpGuess"
+            disabled="disabled"
+            type="number"
+            name="guess">
+    <input
+            disabled="disabled"
+            id="btnGuess"
+            type="button"
+            value="guess">
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
