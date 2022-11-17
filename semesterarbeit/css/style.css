@@ -17,10 +17,15 @@ body {
     position: relative;
     margin: 0;
 }
+body header {
+    display: initial;
+}
 /*top navigation style start*/
 body header nav {
     background-color: gainsboro;
     display: flex;
+    position: sticky;
+    top: 0;
 }
 
 body header nav a {
@@ -36,7 +41,6 @@ body header nav a:hover{
 body header nav a.active{
     background-color: var(--background);
     pointer-events: none;
-
 }
 
 h1 {
@@ -47,13 +51,14 @@ h1 {
 body footer{
     font-style: italic;
     color: #fff;
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     height: var(--footer-height);
     width: 100%;
     display: flex;
     align-items: center;
+    background: var(--background);
 }
 body footer p {
     padding: 0 1em;
@@ -62,14 +67,18 @@ body footer p {
 @media (max-width: 600px) {
     body header nav{
         flex-direction: column;
+        position: sticky;
     }
     body header nav a:not(:first-child){
         display: none;
     }
+    body header nav.visible a{
+        display: inline-block;
+    }
 }
 
 @media (min-width: 601px) {
-    .menu-button{
+    #menu-button{
         display: none;
     }
 }

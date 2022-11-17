@@ -10,16 +10,17 @@
 </head>
 <body>
   <header>
-      <nav>
+      <nav id="navBar">
+          <a onclick="toggleMenu()" id="menu-button">Menu ausklappen</a>
           <a href="index.html">Startseite</a>
           <a href="products.html">Produkte</a>
           <a href="testimonials.html">Testimonials</a>
-          <a href="form.html" class="Active">Feedback senden</a>
+          <a href="form.html" class="active">Feedback senden</a>
       </nav>
   </header>
   <h1>Ihre Meinung ist uns wichtig!</h1>
   <section class="content">
-      <form id="feedback-form" onsubmit="success()"> <!--action="/actions/feedback.js" method="post"-->
+      <form id="feedback-form">
           <section class="name-and-email">
               <div>
                   <label for="feedback-name">Name:</label>
@@ -60,5 +61,6 @@
       </p>
   </footer>
   <script src="js/validation.js"></script>
+  <script src="js/navbar.js"></script>
 </body>
 </html>

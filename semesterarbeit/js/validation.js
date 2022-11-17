@@ -10,7 +10,7 @@ const submitMessage = document.querySelector('#feedback-submitted');
 const nameMessage = document.getElementById('feedback-name-help');
 const mailMessage = document.getElementById('feedback-email-help');
 // https://stackoverflow.com/questions/24098039/rfc-5322-email-format-validation
-const mailPattern = /([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\[[\t -Z^-~]*])/;
+const mailPattern = /([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)|\[[\t -Z^-~]*])/;
 
 //validate name input
 let nameValid = false;
@@ -59,6 +59,10 @@ let checkButton = () => {
 }
 
 //display successful submission
-let success = () => {
+let success = (e) => {
+    e.preventDefault(); //won't submit before AJAX call is configured!
     submitMessage.innerHTML = "Vielen Dank für das Feedback!";
+    setTimeout(() => console.log('waiting three seconds'), 3000);
 }
+
+form.addEventListener("submit", success)

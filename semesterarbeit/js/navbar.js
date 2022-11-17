@@ -1,13 +1,13 @@
-/* jshint esversion: 6 */
-const navMenu = document.querySelector("nav");
-const navButton = document.querySelector(".menu-button");
-let menuOpen = false;
+const navButton = document.querySelector("#menu-button");
+const navMenu = document.querySelector("#navBar");
 
-const showMenu = () => {
-    if (menuOpen) {
+const toggleMenu = () => {
+    if (navMenu.className === "") {
         navButton.innerText = "Menu schließen";
-        menuOpen = true;
+        navMenu.className = "visible";
     }
-    else navButton.innerText = "Menu ausklappen";
-    menuOpen = false;
+    else {
+        navButton.innerText = "Menu ausklappen";
+        navMenu.className = "";
     }
+}
