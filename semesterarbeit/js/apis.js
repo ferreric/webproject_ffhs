@@ -9,14 +9,14 @@ function createProductCard(data){
     const pCard = getProperNode(`
         <article>
       <header class="sku article-child">
-          ${data.products[0]['sku']}
+          ${data['sku']}
       </header>
       <div class="name-price-container">
-        <h2 class="article-child">${data.products[0]['name']}</h2>
-        <p class="product-price article-child">${data.products[0]['price']} CHF</p>
+        <h2 class="article-child">${data['name']}</h2>
+        <p class="product-price article-child">${data['price']} CHF</p>
       </div>
-      <p class="ProductDescription article-child">${data.products[0]['description']}</p>
-      <p class="product-category article-child">${data.products[0].category['name']}</p>
+      <p class="ProductDescription article-child">${data['description']}</p>
+      <p class="product-category article-child">${data.category['name']}</p>
     </article>`)
     productTarget.appendChild(pCard)
 }
@@ -30,7 +30,9 @@ const getProducts = (amount) => {
         .then(result => result.json())
         .then( json => {
             console.log(json)
-            createProductCard(json)
+            json.products.forEach(function (product){
+                createProductCard(product)
+                })
             })
         .catch( er => {
             console.error()
