@@ -1,12 +1,12 @@
 const form = document.getElementById("feedback-form");
-const nameInput = document.querySelector('#feedback-name');
-const mailInput = document.querySelector('#feedback-email');
+const nameInput = document.getElementById('feedback-name');
+const mailInput = document.getElementById('feedback-email');
 const sliderDesign = document.getElementById('feedback-design');
 const designValue = document.getElementById('feedback-design-value');
 const sliderComponents = document.getElementById('feedback-components');
 const componentsValue = document.getElementById('feedback-components-value');
 const submitButton = document.querySelector("button");
-const submitMessage = document.querySelector('#feedback-submitted');
+const submitMessage = document.getElementById('feedback-submitted');
 const nameMessage = document.getElementById('feedback-name-help');
 const mailMessage = document.getElementById('feedback-email-help');
 // https://stackoverflow.com/questions/24098039/rfc-5322-email-format-validation

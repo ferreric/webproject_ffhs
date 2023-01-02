@@ -1,5 +1,5 @@
-const navButton = document.querySelector("#menu-button");
-const navMenu = document.querySelector("#navBar");
+const navButton = document.getElementById("menu-button");
+const navMenu = document.getElementById("navBar");
 
 const toggleMenu = () => {
     if (navMenu.className === "") {
