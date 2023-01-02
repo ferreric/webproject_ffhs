@@ -98,8 +98,10 @@ const like = (type, id, likeButton) => {
             console.log(json)
             likesCount = json.amount
             likeButton.textContent = `👍 ${likesCount}`
+            likeButton.disabled = true
         })
         .catch(er => {
             console.error(er);
+            likeButton.disabled = false
         })
 }
