@@ -29,6 +29,7 @@ const like = (type, id) => {
 }
 //const likeTestimonial = document.getElementById('like-testimonial');
 //likeTestimonial.addEventListener('click', like('testimonial', ${data.id}))
+
 //products loading start
     function createProductCard(data) {
         const pCard = getProperNode(`
@@ -97,4 +98,3 @@ const like = (type, id) => {
                 console.error()
             })
     }
-

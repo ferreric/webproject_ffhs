@@ -93,6 +93,7 @@ article cards style start*/
     background-color: #e4e4e4;
     flex-direction: column;
     padding: 2rem;
+    min-height: calc(100vh - var(--footer-height));
 }
 
 .content article{
