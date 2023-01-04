@@ -55,15 +55,5 @@ updateComponents();
 let enableButton = () => submitButton.disabled = false;
 let disableButton = () =>  submitButton.disabled = true;
 let checkButton = () => {
-    if (nameValid && mailValid) enableButton()
-    else disableButton();
+    nameValid && mailValid ? enableButton() : disableButton()
 }
-
-/*
-let success = (e) => {
-    e.preventDefault(); //won't submit before AJAX call is configured!
-
-}
-
-form.addEventListener("submit", success)*/
-

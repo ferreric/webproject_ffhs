@@ -60,7 +60,6 @@ const getProducts = () => {
 const testimonialTarget = document.querySelector('.testimonials')
 function createTestimonialCard(data) {
     let testimonialId = data['id'];
-    //let thisButtonId = document.querySelector('.button-id-${testimonialId}')
     const tCard = getProperNode(`
         <article>
           <figure>
@@ -136,7 +135,7 @@ const form = document.getElementById("feedback-form");
 const submitMessage = document.getElementById('feedback-submitted');
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault(); // prevent the form from submitting
+    event.preventDefault(); // prevent the page from reloading upon submission
 
     const formData = new FormData(form); // collect the form data
     console.log(formData)
@@ -156,5 +155,92 @@ form.addEventListener('submit', (event) => {
         .catch((error) => {
             console.error(error)
         })
-    submitMessage.innerHTML = "Vielen Dank für das Feedback!";
+    submitMessage.innerHTML = "Vielen Dank für das Feedback!"
+    form.remove()
+    window.scrollTo(0,0)
+    getRatings()
 })
+
+//*********************************************//
+// GET feedback data
+//*********************************************//
+// draws a table with design and components rating
+
+// Initialize the RATINGS_COUNTER object
+let designRatings = new Array(11);
+for (let i = 1; i <= 10; i++) {
+    designRatings[i] = 0;
+}
+
+let componentsRatings = new Array(11);
+for (let i = 1; i <= 10; i++) {
+    componentsRatings[i] = 0
+}
+
+const tableTarget = document.querySelector('.content')
+function drawTable() {
+    const ratingTable = getProperNode(`
+        <table>
+          <tr>
+              <th>Bewertungen</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+              <th>8</th>
+              <th>9</th>
+              <th>10</th>
+          </tr>
+          <tr>
+              <th>Design</th>
+              <td>${designRatings[1]}</td>
+              <td>${designRatings[2]}</td>
+              <td>${designRatings[3]}</td>
+              <td>${designRatings[4]}</td>
+              <td>${designRatings[5]}</td>
+              <td>${designRatings[6]}</td>
+              <td>${designRatings[7]}</td>
+              <td>${designRatings[8]}</td>
+              <td>${designRatings[9]}</td>
+              <td>${designRatings[10]}</td>
+          </tr>
+          <tr>
+              <th>Funktionsumfang</th>
+              <td>${componentsRatings[1]}</td>
+              <td>${componentsRatings[2]}</td>
+              <td>${componentsRatings[3]}</td>
+              <td>${componentsRatings[4]}</td>
+              <td>${componentsRatings[5]}</td>
+              <td>${componentsRatings[6]}</td>
+              <td>${componentsRatings[7]}</td>
+              <td>${componentsRatings[8]}</td>
+              <td>${componentsRatings[9]}</td>
+              <td>${componentsRatings[10]}</td>
+          </tr>
+      </table>`)
+    tableTarget.appendChild(ratingTable)
+}
+const getRatings = () => {
+    fetch(`https://web-modules.dev/api/v1/feedback`, {
+        headers: {
+            Authorization: TOKEN
+        }
+    })
+        .then(result => result.json())
+        .then(json => {
+            console.log(json)
+            json.feedbacks.forEach(function (feedback) {
+                designRatings[feedback.rating_design]++;
+                componentsRatings[feedback.rating_components]++;
+            })
+        })
+        .catch(er => {
+            console.error(er)
+        })
+    console.log(designRatings)
+    console.log(componentsRatings)
+    drawTable()
+}
