@@ -24,31 +24,31 @@
           <section class="name-and-email">
               <div>
                   <label for="feedback-name">Name:</label>
-                  <input type="text" id="feedback-name" name="feedback-name" required>
+                  <input type="text" id="feedback-name" name="name" required>
                   <p id="feedback-name-help" class="helptext">Name zw. 3 und 100 Zeichen</p>
               </div>
               <div>
                   <label for="feedback-email">E-Mail:</label>
-                  <input type="email" name="feedback-email" id="feedback-email" required>
+                  <input type="email" name="email" id="feedback-email" required>
                   <p id="feedback-email-help" class="helptext">Gültige E-Mail-Adresse</p>
               </div>
           </section>
           <section class="Sliders">
               <div>
                   <label for="feedback-design">Design bewerten</label>
-                  <input type="range" min="1" max="10" value="5" name="feedback-design" id="feedback-design">
+                  <input type="range" min="1" max="10" value="5" name="rating_design" id="feedback-design">
                   <p class="helptext"><span id="feedback-design-value">5</span> von 10</p>
               </div>
               <div>
                   <label for="feedback-components">Funktionsumfang bewerten</label>
-                  <input type="range" min="1" max="10" value="5" name="feedback-components" id="feedback-components">
+                  <input type="range" min="1" max="10" value="5" name="rating_components" id="feedback-components">
                   <p class="helptext"><span id="feedback-components-value">5</span> von 10</p>
               </div>
           </section>
           <section>
               <div>
                   <label for="feedback-comment">Hinterlassen Sie einen Kommentar</label>
-                  <textarea id="feedback-comment" name="feedback-comment" cols="40" rows="5"></textarea>
+                  <textarea id="feedback-comment" name="comment" cols="40" rows="5"></textarea>
               </div>
           </section>
           <button type="submit" disabled="true">Absenden</button>
@@ -60,7 +60,8 @@
           © 2022 Eric Ferrari-Herrmann – Fernfachhochschule Schweiz – Schinerstrasse 18 CH-3900 Brig
       </p>
   </footer>
-  <script src="js/validation.js"></script>
+  <script src="js/form.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/apis.js"></script>
 </body>
 </html>

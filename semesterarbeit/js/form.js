@@ -1,4 +1,3 @@
-const form = document.getElementById("feedback-form");
 const nameInput = document.getElementById('feedback-name');
 const mailInput = document.getElementById('feedback-email');
 const sliderDesign = document.getElementById('feedback-design');
@@ -6,7 +5,6 @@ const designValue = document.getElementById('feedback-design-value');
 const sliderComponents = document.getElementById('feedback-components');
 const componentsValue = document.getElementById('feedback-components-value');
 const submitButton = document.querySelector("button");
-const submitMessage = document.getElementById('feedback-submitted');
 const nameMessage = document.getElementById('feedback-name-help');
 const mailMessage = document.getElementById('feedback-email-help');
 // https://stackoverflow.com/questions/24098039/rfc-5322-email-format-validation
@@ -41,7 +39,10 @@ mailInput.addEventListener('input', () => {
 });
 
 // print slider values
-// validation not needed; user can't provide inputs outside range
+//
+// validation not included!!4
+// user could alter range in browser tools!!
+
 let updateDesign = () => designValue.innerHTML = sliderDesign.value;
 sliderDesign.addEventListener('input', updateDesign);
 updateDesign();
@@ -58,11 +59,11 @@ let checkButton = () => {
     else disableButton();
 }
 
-//display successful submission
+/*
 let success = (e) => {
     e.preventDefault(); //won't submit before AJAX call is configured!
-    submitMessage.innerHTML = "Vielen Dank für das Feedback!";
-    setTimeout(() => console.log('waiting three seconds'), 3000);
+
 }
 
-form.addEventListener("submit", success)
+form.addEventListener("submit", success)*/
+

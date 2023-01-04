@@ -1,12 +1,20 @@
 const TOKEN = "Bearer 99|sok4NQmnQQ8TyOnty4v4SCdBV0LUzTlP1tL67KN4";
-//html trimming
+
+//*********************************************//
+// html trimming
+
 const getProperNode = (html) => {
     const templ = document.createElement('template');
     templ.innerHTML = html.trim();
     return templ.content.firstChild.cloneNode(true);
 }
 
-//products loading start
+//*********************************************//
+// products loading
+//*********************************************//
+// template for product cards
+
+const productTarget = document.querySelector('.products')
 function createProductCard(data) {
     const pCard = getProperNode(`
         <article>
@@ -23,9 +31,13 @@ function createProductCard(data) {
     productTarget.appendChild(pCard)
 }
 
-const productTarget = document.querySelector('.products')
-const getProducts = (amount) => {
-    fetch(`https://web-modules.dev/api/v1/products/${amount}`, {
+//*********************************************//
+// products loading
+//*********************************************//
+// API call for products
+
+const getProducts = () => {
+    fetch(`https://web-modules.dev/api/v1/products/12`, {
         headers: {
             Authorization: TOKEN
         }
@@ -40,7 +52,12 @@ const getProducts = (amount) => {
         .catch(e => console.error())
 }
 
-//testimonials loading
+//*********************************************//
+// testimonials loading
+//*********************************************//
+// testimonial card template
+
+const testimonialTarget = document.querySelector('.testimonials')
 function createTestimonialCard(data) {
     let testimonialId = data['id'];
     //let thisButtonId = document.querySelector('.button-id-${testimonialId}')
@@ -59,9 +76,13 @@ function createTestimonialCard(data) {
     testimonialTarget.appendChild(tCard)
 }
 
-const testimonialTarget = document.querySelector('.testimonials')
-const getTestimonials = (amount) => {
-    fetch(`https://web-modules.dev/api/v1/testimonials/${amount}`, {
+//*********************************************//
+// testimonials loading
+//*********************************************//
+// testimonial API call
+
+const getTestimonials = () => {
+    fetch(`https://web-modules.dev/api/v1/testimonials/12`, {
         headers: {
             Authorization: TOKEN
         }
@@ -83,7 +104,7 @@ const getTestimonials = (amount) => {
 //likeTestimonial.addEventListener('click', like('testimonial', ${data.id}))
 
 //like button
-//let likesCount
+let likesCount
 const like = (type, id, likeButton) => {
     console.log(
         `https://web-modules.dev/api/v1/like?type=${type}&id=${id}`
@@ -105,3 +126,35 @@ const like = (type, id, likeButton) => {
             likeButton.disabled = false
         })
 }
+
+//*********************************************//
+// POST form
+//*********************************************//
+// feedback POST API call
+
+const form = document.getElementById("feedback-form");
+const submitMessage = document.getElementById('feedback-submitted');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent the form from submitting
+
+    const formData = new FormData(form); // collect the form data
+    console.log(formData)
+    const url = 'https://web-modules.dev/api/v1/feedback';
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            Authorization: TOKEN
+        },
+        body: formData
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+        }) //display successful submission
+        .catch((error) => {
+            console.error(error)
+        })
+    submitMessage.innerHTML = "Vielen Dank für das Feedback!";
+})
