@@ -60,8 +60,8 @@ let checkButton = () => {
 
 const commentTextArea = document.getElementById('feedback-comment')
 const fixComment = () => {
-    if (commentTextArea.innerText == undefined) {
-        commentTextArea.innerText = ""
+    if (commentTextArea.innerText === '') {
+        commentTextArea.innerText = "EMPTY"
     }
 }
 

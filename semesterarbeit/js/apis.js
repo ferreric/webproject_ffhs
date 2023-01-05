@@ -49,7 +49,7 @@ const getProducts = () => {
                 createProductCard(product)
             })
         })
-        .catch(e => console.error())
+        .catch(error => console.error(error))
 }
 
 //*********************************************//
@@ -93,8 +93,8 @@ const getTestimonials = () => {
                 createTestimonialCard(testimonial)
             })
         })
-        .catch(er => {
-            console.error()
+        .catch(error => {
+            console.error(error)
         })
 }
 
@@ -121,7 +121,7 @@ const like = (type, id, likeButton) => {
             likeButton.disabled = true
         })
         .catch(er => {
-            console.error(er);
+            console.error(er)
             likeButton.disabled = false
         })
 }
@@ -132,15 +132,14 @@ const like = (type, id, likeButton) => {
 // feedback POST API call
 
 const form = document.getElementById("feedback-form");
-const submitMessage = document.getElementById('feedback-submitted');
+const submitMessage = document.getElementById('feedback-submitted')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault(); // prevent the page from reloading upon submission
     if (sliderValid() && nameValid && mailValid) {
-        fixComment() // replace emtpy comment (undefinied) with empty string
+        fixComment() // replace empty comment ('') with "EMPTY" to patch error with POST
         const formData = new FormData(form); // collect the form data
-        console.log(formData)
-        const url = 'https://web-modules.dev/api/v1/feedback';
+        const url = 'https://web-modules.dev/api/v1/feedback'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -162,7 +161,7 @@ form.addEventListener('submit', (event) => {
         window.scrollTo(0, 0) // prevent surprise repositioning
     }
     else {
-        alert("Ungültige Werte!")
+        alert("Ungültige Werte!") // alert nervt, aber wird nur von hackern getriggert. von daher ist's okay.
     }
 })
 
@@ -172,8 +171,8 @@ form.addEventListener('submit', (event) => {
 // draws a table with design and components rating
 
 // Initialize the ratings counters
-let designRatings = new Array(11);
-let componentsRatings = new Array(11);
+let designRatings = new Array(11)
+let componentsRatings = new Array(11)
 let designAvg = 0
 let componentsAvg = 0
 
