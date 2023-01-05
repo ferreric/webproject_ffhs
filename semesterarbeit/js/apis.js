@@ -136,30 +136,34 @@ const submitMessage = document.getElementById('feedback-submitted');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault(); // prevent the page from reloading upon submission
-    fixComment() // replace emtpy comment (undefinied) with empty string
-    const formData = new FormData(form); // collect the form data
-    console.log(formData)
-    const url = 'https://web-modules.dev/api/v1/feedback';
-
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            Authorization: TOKEN
-        },
-        body: formData
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(`formdata:`)
-            console.log(data)
-            getRatings()
-        }) //display successful submission
-        .catch((error) => {
-            console.error(error)
+    if (sliderValid() && nameValid && mailValid) {
+        fixComment() // replace emtpy comment (undefinied) with empty string
+        const formData = new FormData(form); // collect the form data
+        console.log(formData)
+        const url = 'https://web-modules.dev/api/v1/feedback';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                Authorization: TOKEN
+            },
+            body: formData
         })
-    submitMessage.innerHTML = "Vielen Dank für das Feedback!"
-    form.remove() // delete the form html
-    window.scrollTo(0,0) // prevent surprise repositioning
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(`formdata:`)
+                console.log(data)
+                getRatings()
+            }) //display successful submission
+            .catch((error) => {
+                console.error(error)
+            })
+        submitMessage.innerHTML = "Vielen Dank für das Feedback!"
+        form.remove() // delete the form html
+        window.scrollTo(0, 0) // prevent surprise repositioning
+    }
+    else {
+        alert("Ungültige Werte!")
+    }
 })
 
 //*********************************************//
@@ -170,6 +174,8 @@ form.addEventListener('submit', (event) => {
 // Initialize the ratings counters
 let designRatings = new Array(11);
 let componentsRatings = new Array(11);
+let designAvg = 0
+let componentsAvg = 0
 
 for (let i = 1; i <= 10; i++) {
     designRatings[i] = 0;
@@ -186,16 +192,17 @@ const getRatings = () => {
         .then(json => {
             console.log(`feedback data:`)
             console.log(json)
-            console.log(`feedback test (should return 3): ${json.feedbacks[0].rating_design}`)
             json.feedbacks.forEach(function (feedback) {
                 designRatings[feedback.rating_design]++;
+                designAvg += (feedback.rating_design / json.amount);
                 componentsRatings[feedback.rating_components]++;
+                componentsAvg += (feedback.rating_components / json.amount);
             })
-            console.log(`designRatings[1], should return 3: ${designRatings[1]}`)
+            /*console.log(`designRatings[1], should return 3: ${designRatings[1]}`)
             console.log(`designRatings:`)
             console.log(designRatings)
             console.log(`componentsRatings:`)
-            console.log(componentsRatings)
+            console.log(componentsRatings)*/
             drawTable()
         })
         .catch(er => {
@@ -208,23 +215,25 @@ function drawTable() {
     const ratingTable = getProperNode(`
         <table>
             <thead>
-                  <tr>
-                      <th>Bewertungen</th>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                      <th>4</th>
-                      <th>5</th>
-                      <th>6</th>
-                      <th>7</th>
-                      <th>8</th>
-                      <th>9</th>
-                      <th>10</th>
-                  </tr>
-              </thead>
-          <tbody>
+              <tr>
+                  <th>Bewertungen</th>
+                  <th>Ø</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                  <th>8</th>
+                  <th>9</th>
+                  <th>10</th>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                   <th>Design</th>
+                  <td>${designAvg.toFixed(2)}</td>
                   <td>${designRatings[1]}</td>
                   <td>${designRatings[2]}</td>
                   <td>${designRatings[3]}</td>
@@ -238,6 +247,7 @@ function drawTable() {
               </tr>
               <tr>
                   <th>Funktionsumfang</th>
+                  <td>${componentsAvg.toFixed(2)}</td>
                   <td>${componentsRatings[1]}</td>
                   <td>${componentsRatings[2]}</td>
                   <td>${componentsRatings[3]}</td>

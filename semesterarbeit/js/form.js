@@ -64,3 +64,7 @@ const fixComment = () => {
         commentTextArea.innerText = ""
     }
 }
+
+const sliderValid = () => {
+    return (designValue.innerHTML >= 1 && designValue.innerHTML <= 10 && componentsValue.innerHTML >= 1 && componentsValue.innerHTML <= 10)
+}
