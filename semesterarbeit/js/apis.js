@@ -136,7 +136,7 @@ const submitMessage = document.getElementById('feedback-submitted');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault(); // prevent the page from reloading upon submission
-
+    fixComment() // replace emtpy comment (undefinied) with empty string
     const formData = new FormData(form); // collect the form data
     console.log(formData)
     const url = 'https://web-modules.dev/api/v1/feedback';
@@ -150,15 +150,16 @@ form.addEventListener('submit', (event) => {
     })
         .then((response) => response.json())
         .then((data) => {
+            console.log(`formdata:`)
             console.log(data)
+            getRatings()
         }) //display successful submission
         .catch((error) => {
             console.error(error)
         })
     submitMessage.innerHTML = "Vielen Dank für das Feedback!"
-    form.remove()
-    window.scrollTo(0,0)
-    getRatings()
+    form.remove() // delete the form html
+    window.scrollTo(0,0) // prevent surprise repositioning
 })
 
 //*********************************************//
@@ -166,15 +167,40 @@ form.addEventListener('submit', (event) => {
 //*********************************************//
 // draws a table with design and components rating
 
-// Initialize the RATINGS_COUNTER object
+// Initialize the ratings counters
 let designRatings = new Array(11);
+let componentsRatings = new Array(11);
+
 for (let i = 1; i <= 10; i++) {
     designRatings[i] = 0;
+    componentsRatings[i] = 0
 }
 
-let componentsRatings = new Array(11);
-for (let i = 1; i <= 10; i++) {
-    componentsRatings[i] = 0
+const getRatings = () => {
+    fetch(`https://web-modules.dev/api/v1/feedback`, {
+        headers: {
+            Authorization: TOKEN
+        }
+    })
+        .then(result => result.json())
+        .then(json => {
+            console.log(`feedback data:`)
+            console.log(json)
+            console.log(`feedback test (should return 3): ${json.feedbacks[0].rating_design}`)
+            json.feedbacks.forEach(function (feedback) {
+                designRatings[feedback.rating_design]++;
+                componentsRatings[feedback.rating_components]++;
+            })
+            console.log(`designRatings[1], should return 3: ${designRatings[1]}`)
+            console.log(`designRatings:`)
+            console.log(designRatings)
+            console.log(`componentsRatings:`)
+            console.log(componentsRatings)
+            drawTable()
+        })
+        .catch(er => {
+            console.error(er)
+        })
 }
 
 const tableTarget = document.querySelector('.content')
@@ -222,25 +248,4 @@ function drawTable() {
           </tr>
       </table>`)
     tableTarget.appendChild(ratingTable)
-}
-const getRatings = () => {
-    fetch(`https://web-modules.dev/api/v1/feedback`, {
-        headers: {
-            Authorization: TOKEN
-        }
-    })
-        .then(result => result.json())
-        .then(json => {
-            console.log(json)
-            json.feedbacks.forEach(function (feedback) {
-                designRatings[feedback.rating_design]++;
-                componentsRatings[feedback.rating_components]++;
-            })
-        })
-        .catch(er => {
-            console.error(er)
-        })
-    console.log(designRatings)
-    console.log(componentsRatings)
-    drawTable()
 }

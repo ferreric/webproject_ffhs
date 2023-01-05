@@ -57,3 +57,10 @@ let disableButton = () =>  submitButton.disabled = true;
 let checkButton = () => {
     nameValid && mailValid ? enableButton() : disableButton()
 }
+
+const commentTextArea = document.getElementById('feedback-comment')
+const fixComment = () => {
+    if (commentTextArea.innerText == undefined) {
+        commentTextArea.innerText = ""
+    }
+}
