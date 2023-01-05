@@ -109,7 +109,7 @@ article cards style start*/
 }
 
 @media (min-width: 900px){
-    .content{
+    .testimonials, .products{
         flex-flow: row wrap;
     }
 }
@@ -129,8 +129,8 @@ products list style start*/
 }
 .product-price {
     border-radius: 0 15px;
-    background: red;
-    color: yellow;
+    background: white;
+    color: black;
     padding: 0 4px;
     margin-left: auto;
 }
@@ -233,3 +233,19 @@ button:hover{
 .helptext{
     font-size: .8em;
 }
+/*feedback style end
+============================
+
+============================
+table style start*/
+table{
+    text-align: center;
+    border: thin;
+}
+th{
+    border-style: solid;
+}
+td{
+    border-style: dotted;
+}
+/*table style end*/
