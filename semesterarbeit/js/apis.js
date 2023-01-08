@@ -133,37 +133,38 @@ const like = (type, id, likeButton) => {
 
 const form = document.getElementById("feedback-form");
 const submitMessage = document.getElementById('feedback-submitted')
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); // prevent the page from reloading upon submission
-    if (sliderValid() && nameValid && mailValid) {
-        fixComment() // replace empty comment ('') with "EMPTY" to patch error with POST
-        const formData = new FormData(form); // collect the form data
-        const url = 'https://web-modules.dev/api/v1/feedback'
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                Authorization: TOKEN
-            },
-            body: formData
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(`formdata:`)
-                console.log(data)
-                getRatings()
-            }) //display successful submission
-            .catch((error) => {
-                console.error(error)
+if (form) {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // prevent the page from reloading upon submission
+        if (sliderValid() && nameValid && mailValid) {
+            fixComment() // replace empty comment ('') with "EMPTY" to patch error with POST
+            const formData = new FormData(form); // collect the form data
+            const url = 'https://web-modules.dev/api/v1/feedback'
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    Authorization: TOKEN
+                },
+                body: formData
             })
-        submitMessage.innerHTML = "Vielen Dank für das Feedback!"
-        form.remove() // delete the form html
-        window.scrollTo(0, 0) // prevent surprise repositioning
-    }
-    else {
-        alert("Ungültige Werte!") // alert nervt, aber wird nur von hackern getriggert. von daher ist's okay.
-    }
-})
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(`formdata:`)
+                    console.log(data)
+                    getRatings()
+                }) //display successful submission
+                .catch((error) => {
+                    console.error(error)
+                })
+            submitMessage.innerHTML = "Vielen Dank für das Feedback!<br>So haben die anderen Nutzer abgestimmt. (Anzahl der abgegebenen Feedbacks pro Kategorie und Durchschnittsbewertung.)"
+            form.remove() // delete the form html
+            window.scrollTo(0, 0) // prevent surprise repositioning
+        }
+        else {
+            alert("Ungültige Werte!") // alert nervt, aber wird nur von hackern getriggert. von daher ist's okay.
+        }
+    })
+}
 
 //*********************************************//
 // GET feedback data
