@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <books xsd:noNamespaceSchemaLocation="books.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance">
-<!-- Ihre Lösung hier -->
+    <book type="Book">
+        <title></title>
+        <author>
+            <firstname></firstname>
+            <lastname></lastname>
+        </author>
+        <price currency="CHF">2.33</price>
+    </book>
 </books>
 
