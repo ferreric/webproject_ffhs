@@ -44,15 +44,24 @@ flexMenu.addEventListener('change', (e) =>{
 
 const formWrap = document.querySelector('.form-wrap')
 
-formWrap.addEventListener('change', (e) => { // one listener. event propagates.
-    console.log('event thrown ' + e)
+formWrap.addEventListener('change', () => { // one listener. event propagates.
     flexContainer.style.flexDirection = flexDirectionOptions[flexMenu.options.selectedIndex]
     flexContainer.style.justifyContent = justifyContentOptions[justifyMenu.options.selectedIndex]
     flexContainer.style.alignItems = alignItemsOptions[alignMenu.options.selectedIndex]
 })
 
 const checkBoxWrap = document.getElementById('chk-wrap')
-checkBoxWrap.addEventListener('click', (e) => {
-    console.log('checkbox ticked: ' + checkBoxWrap.checked)
+checkBoxWrap.addEventListener('click', () => {
     checkBoxWrap.checked ? (flexContainer.style.flexWrap = 'wrap') : (flexContainer.style.removeProperty('flex-wrap'))
+})
+
+//Schritt 3 - Divs hinzufügen und entfernen
+
+addButton = document.getElementById('btn-add-element')
+addButton.addEventListener('click', () => {
+    const newDiv = document.createElement('div')
+    newDiv.className = 'center-center'
+    const text = document.createTextNode('test')
+    newDiv.appendChild(text)
+    flexContainer.appendChild(newDiv)
 })
