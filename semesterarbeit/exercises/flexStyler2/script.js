@@ -57,11 +57,18 @@ checkBoxWrap.addEventListener('click', () => {
 
 //Schritt 3 - Divs hinzufügen und entfernen
 
-addButton = document.getElementById('btn-add-element')
+const addButton = document.getElementById('btn-add-element')
 addButton.addEventListener('click', () => {
     const newDiv = document.createElement('div')
     newDiv.className = 'center-center'
-    const text = document.createTextNode('test')
+    const text = document.createTextNode(`${flexContainer.children.length + 1}`)
     newDiv.appendChild(text)
     flexContainer.appendChild(newDiv)
+})
+
+const delButton = document.getElementById('btn-del-element')
+delButton.addEventListener('click', () => {
+    if (flexContainer.children.length > 0){
+        flexContainer.removeChild(flexContainer.lastElementChild)
+    }
 })
