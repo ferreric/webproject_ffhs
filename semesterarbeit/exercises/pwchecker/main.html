@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pwCheckah</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        em {
+            font-style: italic;
+        }
+        #response {
+            font-size: xx-large;
+            font-weight: bold;
+            color: #5eb422;
+            background: #bfacac;
+        }
+    </style>
+</head>
+<body>
+    <h1>passwörter check0rn!!einself</h1>
+    <p>gib mir ein passwörter mit regeln so wie hier: <em>3-4 t: dttt</em><br>
+    trenne sie mit einem zeilenumbruch, yo</p>
+    <div>
+        <label for="pwcheck-field">Passwörter:<br></label>
+        <textarea id="pwcheck-field" name="pwcheck-field" cols="40" rows="5"></textarea>
+    </div>
+    <button type="submit" id="submit" >Versuchen</button>
+    <p>anzahl korrekter passwörter:</p>
+    <p id="response"></p>
+</body>
+<script src="script.js"></script>
+</html>
