@@ -72,3 +72,14 @@ delButton.addEventListener('click', () => {
         flexContainer.removeChild(flexContainer.lastElementChild)
     }
 })
+
+//Schritt 4 - Dimensionen zufällig zuteilen
+
+const randButton = document.getElementById('btn-rand-dimension')
+randButton.addEventListener('click', () => {
+    const divs = [...document.getElementsByClassName('center-center')]
+    divs.forEach(div => {
+        div.style.minWidth = `${Math.random() * 300 + 100}px`
+        div.style.minHeight = `${Math.random() * 300 + 100}px`
+    })
+})
