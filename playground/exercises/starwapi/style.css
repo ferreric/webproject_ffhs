@@ -1,0 +1,46 @@
+:root{
+    font-family: Source Code Pro, Monospace;
+}
+
+.middle-middle{
+    justify-content: center;
+    align-items: center;
+}
+
+.starship-detail{
+    margin-top: 2rem;
+    border: 1px solid #000;
+    min-height:50vh;
+    width: 100%;
+    display:flex;
+}
+
+.starship-list{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    overflow: scroll;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.starship-list > div {
+    display: flex;
+    padding: 2rem;
+}
+
+.starship {
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    min-width: 20vw;
+}
+
+.starship h2 {
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+.starship h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
