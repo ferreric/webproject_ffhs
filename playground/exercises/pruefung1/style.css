@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 0;
+    background-color: #f6f6f6;
+}
+
+.c {
+    max-width: 1000px;
+}
+
+.footer {
+    background-color: grey;
+    height: 3rem;
+    /* ?? */
+}
+
+.navigation {
+    display: flex;
+    margin: 3rem 0;
+    flex-direction: row;
+}
+
+.center-content {
+    background-color: #ffffff;
+}
+
+.questions {
+    /* ?? */
+}
+
+.question {
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+    margin: 10px;
+    /* ?? */
+}
+
+.title-2 {
+    margin: 10px;
+}
+
+.question p {
+    margin: 10px;
+}
+
+.sorters, .filters {
+    text-align: center;
+}
+
+@media /* ??? */ {
+    /* All changes for mobile */
+}
