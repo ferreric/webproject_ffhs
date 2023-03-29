@@ -6,27 +6,19 @@ STUD: Eric Ferrari-Herrmann
 
 ## Semesterarbeit
 
-Die Semesterarbeit muss in dem Ordner [./semesterarbeit](semesterarbeit) realisiert werden. 
-Eine Grundstruktur zum Trennen von JavaScript und CSS Dateien ist bereits angelegt, 
-die HTML Dateien kannst du in das Hauptverzeichnis legen. 
+Teil des Moduls *Web-Grundlagen* der Fernfachhchschule Schweiz war eine Projektarbeit. Es ging darum, eine Homepage mit gewissen Vorlagen und diversen Freiheiten zu planen und umzusetzen. Die Vorgaben lauten
 
-Beispielsweise:
+- Responsives Verhalten für alle Elemente
+- Fixed Navigation (stets ersichtlich, auch wenn gescrollt wird) mit mobilem Hamburger
+- Sticky & Fixed Footer
+- Mindestens eine Seite, auf der mehrere Elemente aus einer API darstellt werden
+- Eine Seite mit einem Formular, welches die Formulardaten beim Absenden an eine API sendet
 
-```
-...
-semesterarbeit/css/format.css
-semesterarbeit/scripts/app.js
-semesterarbeit/index.html
-semesterarbeit/detailview.html
-...
-```
+Die Gestaltung und Zusammenstellung der Seite, sowie die Wahl weiterer Komponenten und eigener Ideen, oblag mir.
 
-## Dokumentation und Planung
+All das sollte im Rahmen des Grundlagenmoduls vanilla, also ohne fremde Bibliotheken realisiert werden. 
+Das JavaScript und CSS mussten von Grund auf selber geschrieben werden.
 
-Wireframes und Beschreibungen zu der Semesterarbeit sind in dem Ordner [./docs](docs) zu hinterlegen.
-
-## Lernleistungen
-
-Die Lernleistungen U1 und U2 sind im Moodle abzugeben. 
-Die Daten Vorlagen für die Aufgabe U3 befinden sind im Ordner [./u3](u3). 
-Für diese Aufgabe gilt es diese Dateien gemäss der Aufgabe in Moodle zu ergänzen. 
+Die Website sollte responsives Verhalten aufweisen, also Inhalte der W abhängig von dem zur Verfügung stehenden Platz anders angezeigen.
+Während auf einem grossen Bildschirm viele Elemente nebeneinander angezeigt werden können, müssen diese auf einem Smartphone untereinander 
+angeordnet werden, um ein angenehmes Betrachten der Webseite sicherzustellen.
