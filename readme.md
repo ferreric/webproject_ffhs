@@ -1,10 +1,6 @@
-# WebG Modul
-
-Repository von: 
-
-STUD: Eric Ferrari-Herrmann
-
 ## Semesterarbeit
+
+Zu finden [im eigenen Verzeichnis](https://github.com/ferreric/webproject_ffhs/tree/main/semesterarbeit).
 
 Teil des Moduls *Web-Grundlagen* der Fernfachhchschule Schweiz war eine Projektarbeit. Es ging darum, eine Homepage mit gewissen Vorlagen und diversen Freiheiten zu planen und umzusetzen. Die Vorgaben lauten
 
